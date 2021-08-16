@@ -9,13 +9,10 @@ public class Main {
         list.add(2);
         list.add(3);
         list.addFirst(0);
-        list.add(2,9);
-        list.add(2,9);
         TwoWayList<Integer> list2 = new TwoWayList();
-        list2.add(33);
-        list2.add(44);
+        list2.add(11);
+        list2.add(22);
         list.addAll(2,list2);
-        list.add(7,10);
 
 
 
