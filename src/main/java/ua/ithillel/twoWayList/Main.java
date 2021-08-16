@@ -12,8 +12,7 @@ public class Main {
         TwoWayList<Integer> list2 = new TwoWayList();
         list2.add(11);
         list2.add(22);
-        list.addAll(2,list2);
-
+        list.addAll(2, list2);
 
 
         Iterator<Integer> iter = list.iterator();

@@ -9,15 +9,15 @@ public class TwoWayList<T> implements Iterable<T> {
     private int size = 0;
 
     public void add(T element) {
-        ListItem<T> listItem = new ListItem<>(element);
+        ListItem<T> lastItem = new ListItem<>(element);
         size++;
         if (tail != null) {
             ListItem<T> previous = tail;
-            tail.next = listItem;
-            tail = listItem;
+            tail.next = lastItem;
+            tail = lastItem;
             tail.previous = previous;
         } else {
-            tail = head = listItem;
+            tail = head = lastItem;
         }
     }
 
@@ -100,14 +100,14 @@ public class TwoWayList<T> implements Iterable<T> {
         size--;
     }
 
-    public void removeByElem(T elem) {
+    public void remove(T elem) {
         ListItem<T> current = head;
         int index = 0;
-        while (index < size && current.value != elem ) {
+        while (index < size && current.value != elem) {
             index++;
             current = current.next;
         }
-        if(index < size) {
+        if (index < size) {
             remove(index);
         }
     }
