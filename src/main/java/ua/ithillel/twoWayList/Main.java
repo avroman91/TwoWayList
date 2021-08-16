@@ -13,6 +13,10 @@ public class Main {
         list2.add(11);
         list2.add(22);
         list.addAll(2, list2);
+//        list.removeByIndex(0);
+//        list.remove(11);
+        System.out.println(list.contains(1));
+        list.set(2, 10);
 
 
         Iterator<Integer> iter = list.iterator();

@@ -36,14 +36,16 @@ public class TwoWayList<T> implements Iterable<T> {
     public void add(int index, T element) {
         ListItem<T> elemAtIndex = new ListItem<>(element);
         ListItem<T> current = head;
+
         if (index >= size || index < 0) return;
+
         if (index == 0 && tail != null) {
             ListItem<T> next = head;
             head = elemAtIndex;
             head.next = next;
             head.next.previous = head;
-
         }
+
         if (index != 0) {
             while (index != 0) {
                 current = current.next;
@@ -78,8 +80,7 @@ public class TwoWayList<T> implements Iterable<T> {
         size = 0;
     }
 
-    public void remove(int index) {
-        ListItem<T> current = head;
+    public void removeByIndex(int index) {
         if (index == size - 1) {
             tail.previous.next = null;
             tail = tail.previous;
@@ -92,6 +93,7 @@ public class TwoWayList<T> implements Iterable<T> {
             size--;
             return;
         }
+        ListItem<T> current = head;
         for (int i = index; i > 0; i--) {
             current = current.next;
         }
@@ -108,10 +110,35 @@ public class TwoWayList<T> implements Iterable<T> {
             current = current.next;
         }
         if (index < size) {
-            remove(index);
+            removeByIndex(index);
         }
     }
 
+    public boolean contains(T elem) {
+        ListItem<T> current = head;
+        int index = 0;
+        while (index < size && current.value != elem) {
+            index++;
+            current = current.next;
+        }
+        return index < size;
+    }
+
+    public void set(int index, T elem) {
+        ListItem<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        current.value = elem;
+    }
+
+    public ListItem<T> getFirst() {
+        return head;
+    }
+
+    public ListItem<T> getLast() {
+        return tail;
+    }
 
     public int size() {
         return size;
