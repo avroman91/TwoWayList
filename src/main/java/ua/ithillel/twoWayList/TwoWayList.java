@@ -67,17 +67,13 @@ public class TwoWayList<T> implements Iterable<T> {
     }
 
     public void addAll(int index, TwoWayList<T> list) {
-        ListItem<T> current = list.head;
-        int i = index;
-        while (i != 0) {
+        ListItem<T> current = list.tail;
+        for (int i = index; i > 0; i--) {
             add(index, current.value);
-            current = current.next;
-            i--;
-            index++;
+            current = current.previous;
         }
     }
-
-
+    
     public int size() {
         return size;
     }
