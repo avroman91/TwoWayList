@@ -31,20 +31,18 @@ public class TwoWayList<T> implements Iterable<T> {
 
     public void addLast(T element) {
         add(element);
-
     }
 
     public void add(int index, T element) {
         ListItem<T> elemAtIndex = new ListItem<>(element);
         ListItem<T> current = head;
-        if (index == 0 && index < size && tail != null) {
+        if(index >= size || index < 0) return;
+        if (index == 0 && tail != null) {
             ListItem<T> next = head;
             head = elemAtIndex;
             head.next = next;
             head.next.previous = head;
 
-        } else if (index == size - 1 && tail != null) {
-            add(element);
         }
         if (index != 0) {
             while (index != 0) {

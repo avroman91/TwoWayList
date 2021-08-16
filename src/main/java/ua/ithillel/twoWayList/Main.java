@@ -15,6 +15,7 @@ public class Main {
         list2.add(33);
         list2.add(44);
         list.addAll(2,list2);
+        list.add(7,10);
 
 
 
