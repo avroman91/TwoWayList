@@ -63,6 +63,7 @@ public class TwoWayList<T> implements Iterable<T> {
         for (int i = 0; i < list.size; i++) {
             add(current.value);
             current = current.next;
+            size++;
         }
     }
 
@@ -71,9 +72,15 @@ public class TwoWayList<T> implements Iterable<T> {
         for (int i = index; i > 0; i--) {
             add(index, current.value);
             current = current.previous;
+            size++;
         }
     }
-    
+
+    public void clean() {
+        head = tail = null;
+        size = 0;
+    }
+
     public int size() {
         return size;
     }

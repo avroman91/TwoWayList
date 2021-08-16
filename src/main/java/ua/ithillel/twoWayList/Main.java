@@ -17,6 +17,7 @@ public class Main {
         list.addAll(2,list2);
 
 
+
         Iterator<Integer> iter = list.iterator();
         System.out.println("----------------------");
         while (iter.hasNext()) {
